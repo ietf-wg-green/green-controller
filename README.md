@@ -4,10 +4,10 @@
 
 This is the working area for the individual Internet-Draft, "GREEN Controller YANG".
 
-* [Editor's Copy](https://janlindblad.github.io/draft-green-controller/#go.draft-xxxx-green-controller-yang.html)
-* [Datatracker Page](https://datatracker.ietf.org/doc/draft-xxxx-green-controller-yang)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-xxxx-green-controller-yang)
-* [Compare Editor's Copy to Individual Draft](https://janlindblad.github.io/draft-green-controller/#go.draft-xxxx-green-controller-yang.diff)
+* [Editor's Copy](https://janlindblad.github.io/draft-green-controller/#go.draft-swepcarl-green-controller-yang.html)
+* [Datatracker Page](https://datatracker.ietf.org/doc/draft-swepcarl-green-controller-yang)
+* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-swepcarl-green-controller-yang)
+* [Compare Editor's Copy to Individual Draft](https://janlindblad.github.io/draft-green-controller/#go.draft-swepcarl-green-controller-yang.diff)
 
 
 ## Contributing
