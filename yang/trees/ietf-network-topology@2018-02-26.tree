@@ -1,0 +1,33 @@
+module: ietf-network-topology
+
+  augment /nw:networks/nw:network:
+    +--rw link* [link-id]
+       +--rw link-id            link-id
+       +--rw source
+       |  +--rw source-node?   -> ../../../nw:node/node-id
+       |  +--rw source-tp?     leafref
+       +--rw destination
+       |  +--rw dest-node?   -> ../../../nw:node/node-id
+       |  +--rw dest-tp?     leafref
+       +--rw supporting-link* [network-ref link-ref]
+          +--rw network-ref
+          |       -> ../../../nw:supporting-network/network-ref
+          +--rw link-ref       leafref
+  augment /nw:networks/nw:network/nw:node:
+    +--rw termination-point* [tp-id]
+       +--rw tp-id                           tp-id
+       +--rw supporting-termination-point*
+               [network-ref node-ref tp-ref]
+          +--rw network-ref
+          |       -> ../../../nw:supporting-node/network-ref
+          +--rw node-ref
+          |       -> ../../../nw:supporting-node/node-ref
+          +--rw tp-ref         leafref
+
+  grouping link-ref:
+    +-- link-ref?      leafref
+    +-- network-ref?   -> /nw:networks/network/network-id
+  grouping tp-ref:
+    +-- tp-ref?        leafref
+    +-- node-ref?      leafref
+    +-- network-ref?   -> /nw:networks/network/network-id

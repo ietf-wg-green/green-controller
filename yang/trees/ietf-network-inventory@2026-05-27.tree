@@ -1,0 +1,89 @@
+module: ietf-network-inventory
+  +--ro network-inventory
+     +--ro network-elements
+        +--ro network-element* [ne-id]
+           +--ro ne-id           string
+           +--ro ne-type?        identityref
+           +--ro uuid?           yang:uuid
+           +--ro name?           string
+           +--ro alias?          string
+           +--ro description?    string
+           +--ro software-rev* [name]
+           |  +--ro name        string
+           |  +--ro revision?   string
+           |  +--ro patch* [revision]
+           |     +--ro revision    string
+           +--ro mfg-name?       string
+           +--ro product-name?   string
+           +--ro product-rev?    string
+           +--ro components
+              +--ro component* [component-id]
+                 +--ro component-id      string
+                 +--ro class             union
+                 +--ro uuid?             yang:uuid
+                 +--ro name?             string
+                 +--ro alias?            string
+                 +--ro description?      string
+                 +--ro software-rev* [name]
+                 |  +--ro name        string
+                 |  +--ro revision?   string
+                 |  +--ro patch* [revision]
+                 |     +--ro revision    string
+                 +--ro mfg-name?         string
+                 +--ro product-name?     string
+                 +--ro hardware-rev?     string
+                 +--ro mfg-date?         yang:date-and-time
+                 +--ro part-number?      string
+                 +--ro serial-number?    string
+                 +--ro asset-id?         string
+                 +--ro is-fru?           boolean
+                 +--ro uri*              inet:uri
+                 +--ro parent*
+                 |       -> ../../component/component-id
+                 +--ro parent-rel-pos?   string
+                 +--ro is-main?          boolean
+
+  grouping component-ref:
+    +-- ne-ref?          nwi:ne-ref
+    +-- component-ref?   leafref
+  grouping port-ref:
+    +-- ne-ref?     nwi:ne-ref
+    +-- port-ref?   leafref
+  grouping basic-common-entity-attributes:
+    +-- uuid?          yang:uuid
+    +-- name?          string
+    +-- alias?         string
+    +-- description?   string
+  grouping ne-component-common-entity-attributes:
+    +-- uuid?           yang:uuid
+    +-- name?           string
+    +-- alias?          string
+    +-- description?    string
+    +-- software-rev* [name]
+    |  +-- name        string
+    |  +-- revision?   string
+    |  +-- patch* [revision]
+    |     +-- revision    string
+    +-- mfg-name?       string
+    +-- product-name?   string
+  grouping component-attributes:
+    +-- component-id?    string
+    +-- class            union
+    +-- uuid?            yang:uuid
+    +-- name?            string
+    +-- alias?           string
+    +-- description?     string
+    +-- software-rev* [name]
+    |  +-- name        string
+    |  +-- revision?   string
+    |  +-- patch* [revision]
+    |     +-- revision    string
+    +-- mfg-name?        string
+    +-- product-name?    string
+    +-- hardware-rev?    string
+    +-- mfg-date?        yang:date-and-time
+    +-- part-number?     string
+    +-- serial-number?   string
+    +-- asset-id?        string
+    +-- is-fru?          boolean
+    +-- uri*             inet:uri
