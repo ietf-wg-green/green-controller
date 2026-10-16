@@ -114,7 +114,7 @@ For each node in the network we see its node-id used by the controller, referenc
 For each component, there is a component-id and references to alternate names of this node in other contexts. Then power and energy data for this component, and the energy relationships this component has with other components, such as powered-by or metering.
 
 ~~~~ json
-{::include .yang/examples/three-router-example@2026-09-26.json}
+{::include ./yang/examples/three-router-example@2026-09-26.json}
 ~~~~
 {: sourcecode-markers="true"
 sourcecode-name="three-router-example@2026-09-26.json"}
@@ -132,7 +132,7 @@ Any double counting?
 ## Types and Groupings
 
 ~~~~ yang
-{::include .yang/ietf-power-energy-base.yang}
+{::include ./yang/ietf-power-energy-base.yang}
 ~~~~
 {: sourcecode-markers="true"
 sourcecode-name="ietf-power-energy-base.yang"}
@@ -140,7 +140,7 @@ sourcecode-name="ietf-power-energy-base.yang"}
 ## Energy Network State
 
 ~~~~ yang
-{::include .yang/ietf-power-energy-network.yang}
+{::include ./yang/ietf-power-energy-network.yang}
 ~~~~
 {: sourcecode-markers="true"
 sourcecode-name="ietf-power-energy-network.yang"}
