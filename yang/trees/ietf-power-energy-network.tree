@@ -38,13 +38,11 @@ module: ietf-power-energy-network
           |  +--rw certifications*           identityref
           +--rw relationship* [type peer-node]
              +--rw type              identityref
-             +--rw peer-node
-             |       -> ../../../../../nw:node/node-id
+             +--rw peer-node         -> ../../../../../nw:node/node-id
              +--rw peer-component* [peer-component]
-                +--rw peer-component    leafref
+                +--rw peer-component    -> ../../../../../../nw:node[nw:node-id=current()/../../peer-node]/pen:energy-node-attributes/component/component-id
                 +--rw details?          string
-  augment /nwi:network-inventory/nwi:network-elements
-            /nwi:network-element/nwi:components/nwi:component:
+  augment /nwi:network-inventory/nwi:network-elements/nwi:network-element/nwi:components/nwi:component:
     +--ro power
     |  +--ro instantaneous-power?    int64
     |  +--ro nameplate-power?        uint32
@@ -67,5 +65,5 @@ module: ietf-power-energy-network
        +-- type              identityref
        +-- peer-node         -> ../../../../../nw:node/node-id
        +-- peer-component* [peer-component]
-          +-- peer-component    leafref
+          +-- peer-component    -> ../../../../../../nw:node[nw:node-id=current()/../../peer-node]/pen:energy-node-attributes/component/component-id
           +-- details?          string

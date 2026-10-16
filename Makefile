@@ -13,3 +13,15 @@ else
 	    https://github.com/martinthomson/i-d-template $(LIBDIR)
 endif
 endif
+
+TREE_DIR := yang/trees
+PYANG := pyang
+tree trees: \
+	$(TREE_DIR)/ietf-power-energy-base.tree \
+	$(TREE_DIR)/ietf-power-energy-network.tree
+
+$(TREE_DIR)/%.tree: yang/%.yang | $(TREE_DIR)/
+	$(PYANG) -p yang -f tree --tree-print-groupings $< > $@
+
+$(TREE_DIR)/:
+	mkdir -p $(TREE_DIR)
