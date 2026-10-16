@@ -35,6 +35,11 @@ author:
 
 normative:
   RFC7950:
+  RFC8345:
+  I-D.draft-ietf-green-framework-02:
+  I-D.draft-ietf-green-power-and-energy-yang-04:
+  I-D.draft-ietf-ivy-network-inventory-yang-20:
+  I-D.draft-claise-green-capability-discovery-02:
 
 informative:
 
@@ -62,6 +67,8 @@ coming from, how it has been computed and that it is correct.
 
 {::boilerplate bcp14-tagged}
 
+# GREEN Use Case Mapping
+
 # Controller Configuration
 
 This section describes how to configure the Energy Controller so that
@@ -70,13 +77,16 @@ transform and aggregate the collected data. Where to deliver any output
 streams, if any, and whether do populate a power and energy overview
 of the network.
 
+## Capability Discovery
+
+The controller fuses this state view with per-power-state capability
+data. TBD
+
 ## Collection
 
 The GREEN Controller needs to ensure data is collected from the devices under its control, but the actual data does not necessarily need to pass through the Controller.
 
-This YANG module enumerates the devices it collects data from, and also specifies which collection method it uses for each device. A few collection methods are specified in this module, but augmentations with additional mechanisms are expected.
-
-TBD
+This YANG module TBD
 
 ## Filtering and Transformation
 ## Aggregation
