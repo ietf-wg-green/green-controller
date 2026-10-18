@@ -1,7 +1,7 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-10-15T00:09:00.711330+00:00",
-  "repo": "janlindblad/draft-green-controller",
+  "timestamp": "2026-10-18T03:29:37.423015+00:00",
+  "repo": "ietf-wg-green/green-controller",
   "labels": [
     {
       "name": "bug",
@@ -49,6 +49,94 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
-  "pulls": []
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDOUTfhz88AAAABSwKoig",
+      "title": "Controller to compare max-exit-time against the configured restoration threshold before initiating a sleep transition",
+      "url": "https://github.com/ietf-wg-green/green-controller/issues/1",
+      "state": "OPEN",
+      "author": "marisolpalmero",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Based on this thread in the GREEN mailer:\nhttps://mailarchive.ietf.org/arch/browse/green/?qdr=m&q=capability-discovery\nwith title:\nRe: [Green] Re: Fwd: New Version Notification for draft-claise-green-capability-discovery-01.txt\n\nOn the controller perspective: the transition times in -01 (typical-exit-time, max-exit-time) change controller decisions beyond just PSP:\nA controller serving a sub-second restoration SLA cannot sleep a line card with max-exit-time of 2 seconds, even if the energy saving is attractive. I would suggest adding the following sentence to the Operational Considerations section for the capabilities draft, and addressing this from the controller perspective as well\n\n   \"A controller SHOULD compare max-exit-time against its\n   configured restoration threshold before initiating a sleep\n   transition, not only compare PSP against an energy saving\n   target; a Power State with attractive PSP but unacceptable\n   exit time SHOULD NOT be selected.\"\n",
+      "createdAt": "2026-09-23T12:31:11Z",
+      "updatedAt": "2026-09-23T12:31:11Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 2,
+      "id": "I_kwDOUTfhz88AAAABSwPJEQ",
+      "title": "transient and inrush power out of scope from Capability discovery draft, but should be considered as use case for the controller",
+      "url": "https://github.com/ietf-wg-green/green-controller/issues/2",
+      "state": "OPEN",
+      "author": "marisolpalmero",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Based on this thread in the GREEN mailer:\nhttps://mailarchive.ietf.org/arch/browse/green/?qdr=m&q=capability-discovery\nwith title:\nRe: [Green] Re: Fwd: New Version Notification for draft-claise-green-capability-discovery-01.txt\n\nOpening this issue, to cover on transient and inrush power, which are out of scope from Capability discovery draft and well as the GREEN YANG data model for the device, but should be considered as use case for the controller, or at least considered under the operational considerations.\n\nThe capability discovery draft would benefit from an explicit statement clarifying that it covers steady-state per-Power-State capabilities only, where transient and inrush power are out of scope, as are PSU supply capabilities. \nThis boundary is implicit today but should be stated somewhere in the draft, or even  to be discussed/included on the framework/controller specific drafts. In this case, when coming from the LSR or power steering context, they know what to expect. I understand Benoit will address this in the next revision (02?)\n\nThat said, transient and inrush power are not irrelevant to energy management, they matter for capacity planning use cases. When a controller decides to wake multiple sleeping components simultaneously, the aggregate inrush current can trip a breaker or exceed the PSU's available headroom. A controller that only models steady-state PSP has no basis for staggering wake-up sequences to avoid that scenario. This is a gap worth noting for the controller YANG module discussion.",
+      "createdAt": "2026-09-23T12:37:40Z",
+      "updatedAt": "2026-09-23T12:37:40Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
+  "pulls": [
+    {
+      "number": 3,
+      "id": "PR_kwDOUTfhz88AAAABIsj8WQ",
+      "title": "Import into ietf",
+      "url": "https://github.com/ietf-wg-green/green-controller/pull/3",
+      "state": "MERGED",
+      "author": "janlindblad",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-10-15T19:15:02Z",
+      "updatedAt": "2026-10-15T19:15:13Z",
+      "baseRepository": "ietf-wg-green/green-controller",
+      "baseRefName": "main",
+      "baseRefOid": "5005a46ec4959e798541092edbfe085ff3817a78",
+      "headRepository": "ietf-wg-green/green-controller",
+      "headRefName": "import-into-ietf",
+      "headRefOid": "c17726e8239453d43e637eaae1aa882451aa4a7d",
+      "closedAt": "2026-10-15T19:15:12Z",
+      "mergedAt": "2026-10-15T19:15:12Z",
+      "mergedBy": "janlindblad",
+      "mergeCommit": {
+        "oid": "041ccc3b0218f5607341700b5898b5d2eedac179"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDOUTfhz88AAAABIwDJNA",
+      "title": "Add abstract",
+      "url": "https://github.com/ietf-wg-green/green-controller/pull/4",
+      "state": "OPEN",
+      "author": "billwuqin",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-10-16T01:45:33Z",
+      "updatedAt": "2026-10-16T02:08:46Z",
+      "baseRepository": "ietf-wg-green/green-controller",
+      "baseRefName": "main",
+      "baseRefOid": "d0bd507b961e11dcca386c9ce92f4938c77960b9",
+      "headRepository": "ietf-wg-green/green-controller",
+      "headRefName": "billwuqin-patch-1",
+      "headRefOid": "a7f072aa9f95a5bdbc1923640cae5b2475efd354",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
