@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-10-18T03:29:37.423015+00:00",
+  "timestamp": "2026-10-29T04:47:36.164521+00:00",
   "repo": "ietf-wg-green/green-controller",
   "labels": [
     {
@@ -79,6 +79,22 @@
       "body": "Based on this thread in the GREEN mailer:\nhttps://mailarchive.ietf.org/arch/browse/green/?qdr=m&q=capability-discovery\nwith title:\nRe: [Green] Re: Fwd: New Version Notification for draft-claise-green-capability-discovery-01.txt\n\nOpening this issue, to cover on transient and inrush power, which are out of scope from Capability discovery draft and well as the GREEN YANG data model for the device, but should be considered as use case for the controller, or at least considered under the operational considerations.\n\nThe capability discovery draft would benefit from an explicit statement clarifying that it covers steady-state per-Power-State capabilities only, where transient and inrush power are out of scope, as are PSU supply capabilities. \nThis boundary is implicit today but should be stated somewhere in the draft, or even  to be discussed/included on the framework/controller specific drafts. In this case, when coming from the LSR or power steering context, they know what to expect. I understand Benoit will address this in the next revision (02?)\n\nThat said, transient and inrush power are not irrelevant to energy management, they matter for capacity planning use cases. When a controller decides to wake multiple sleeping components simultaneously, the aggregate inrush current can trip a breaker or exceed the PSU's available headroom. A controller that only models steady-state PSP has no basis for staggering wake-up sequences to avoid that scenario. This is a gap worth noting for the controller YANG module discussion.",
       "createdAt": "2026-09-23T12:37:40Z",
       "updatedAt": "2026-09-23T12:37:40Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 5,
+      "id": "I_kwDOUTfhz88AAAABakIvwA",
+      "title": "Requirement from the API interface (towards PETRA)",
+      "url": "https://github.com/ietf-wg-green/green-controller/issues/5",
+      "state": "OPEN",
+      "author": "marisolpalmero",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Consider:\nhttps://github.com/ietf-wg-green/draft-ietf-green-framework/issues/90",
+      "createdAt": "2026-10-28T11:06:58Z",
+      "updatedAt": "2026-10-28T11:06:58Z",
       "closedAt": null,
       "comments": []
     }
